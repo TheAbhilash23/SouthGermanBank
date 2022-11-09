@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Welcome to South German Bank</title>
+
+        {% load static %}
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        {% comment %} <link rel="stylesheet" type="text/css" href='{% static "css/styles.css"%}'> {% endcomment %}
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+        
+    </head>
+        
+
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+        <script src="https://platform.linkedin.com/badges/js/profile.js" async defer type="text/javascript"></script>
+
+
+
+        
+
+  
+        <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+ 
+            <a class="navbar-brand" href="{% url 'homepage'%}"><img src='{% static "images/logo1.png"%}' height='40px'></a>
+  
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    
+                <span class="navbar-toggler-icon"></span>
+  
+            </button>
+
+  
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+  
+                <ul class="navbar-nav ml-auto">
+  
+
+  
+                    <li class="nav-item">
+  
+                        <a class="nav-link" href={% url 'customer_enquiry' %}>Customer Enquiry</a>
+  
+                    </li>
+  
+                    <li class="nav-item">
+  
+                        <a class="nav-link" href={% url 'login' %}>Employee Login</a>
+  
+                    </li>
+  
+                    <li class="nav-item">
+  
+                        <a class="nav-link" href={% url 'signup' %}>Sign Up</a>
+  
+                    </li>
+  
+                </ul>
+  
+            </div>
+
+        </nav> 
+
+
+      
+
+        <div class="jumbotron" >
+            <div class="row">
+                <div class="col">
+                    <div class="logo" align="left">
+                        <br><br>
+                        <img src='{% static "images/logo1.png" %}' />
+                    </div>
+                </div>
+                <div class="col" align="center">
+                    <br><br><br>
+                    <h1 class="display-4">Welcome to South German Bank</h1>
+
+                    <h5 class="lead">Lassen sie uns für sie sorgen</h5>
+                </div>
+                <div class="col">
+                    </div>
+            </div>
+        </div>
+
+            {% comment %} <hr class="my-4">
+
+            <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+
+            <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a> {% endcomment %}
+            <div class="row">
+                <div class="col">
+
+                    <br>
+                    <ul><h2>&nbsp; Getting started!</h2></ul>
+                        <br>
+                        <ul>&nbsp;1) To begin, you will need to signup on our website.<br></ul>
+                        <ul>&nbsp;2) After signup, Login via link in the navigation bar.<br></ul>
+                        <ul>&nbsp;3) Then you can choose the application you wish to use (1. Analyser Application ; 2. CRUD Operations Application) <br></ul>
+                        <ul>&nbsp;4) Go to the Analyser Application and fill the form containing the particulars of the concerned customer and  <b> Predict </b>. <br></ul>
+                        <ul>&nbsp;5) The Application will redirect you to the page containing the values of the particulars of the customer and the Predicted Credit Risk (High Risk OR Low Risk) using Logistic Regression. <br></ul>
+                        <ul>&nbsp;6) It will also show the data of all the customers in the database.<br><br><br></ul>
+                    
+                        <ul>&nbsp;a) If you wish to add the details of the customer into the database (in "SGBProject_Odb" model), click on the back button.<br></ul>
+                        <ul>&nbsp;b) Go to the CRUD Operations Application.<br></ul>
+                        <ul>&nbsp;c) Add the details of the customer in the form under "Add new" tab and click on "Add new" .<br></ul>
+                        <ul>&nbsp;<b>d) Remember the customer id if you wish to edit/delete the customer details.</b><br></ul>
+                </div>
+                <div class="col">
+                <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+                        <div class="badge-base LI-profile-badge" align='right' data-locale="en_US" data-size="medium" data-theme="light" data-type="VERTICAL" data-vanity="abhilash23" data-version="v1"><b> This Project is made by &nbsp;</b><a class="badge-base__link LI-simple-link" href="https://in.linkedin.com/in/abhilash23?trk=profile-badge">Abhilash K.</a></div>
+                
+              
+                </div>
+
+            </div>
+
+
+
+
+
+
+        </div>
+
+
+
+
+
+        
+        {% comment %} <div class="con">
+            <div class='hometitle' align='center'>
+                <br>
+                <h1> Welcome to South German Bank </h1> 
+                <h4>Lassen sie uns für sie sorgen </h4>
+                <br><br>
+                <hr>
+            </div>
+        </div> {% endcomment %}
+       
+
+
+
+       
+    </body>
+</html>

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Welcome to South German Bank</title>
+
+        {% load static %}
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        {% comment %} <link rel="stylesheet" type="text/css" href='{% static "css/styles.css"%}'> {% endcomment %}
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+        
+    </head>
+   
+
+
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+
+        
+
+  
+        <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+ 
+            <a class="navbar-brand" href="{% url 'homepage'%}"><img src='{% static "images/logo1.png"%}' height='40px'></a>
+  
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    
+                <span class="navbar-toggler-icon"></span>
+  
+            </button>
+
+  
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+  
+                <ul class="navbar-nav ml-auto">
+  
+                    <li class="nav-item active">
+  
+                        <a class="nav-link" href={% url 'progress' %}>Progress</a>
+  
+                    </li>
+  
+                    <li class="nav-item">
+  
+                        <a class="nav-link" href={% url 'customer_enquiry' %}>Customer Enquiry</a>
+  
+                    </li>
+  
+                    <li class="nav-item">
+  
+                        <a class="nav-link" href={% url 'login' %}>Employee Login</a>
+  
+                    </li>
+  
+                    <li class="nav-item">
+  
+                        <a class="nav-link" href={% url 'signup' %}>Sign Up</a>
+  
+                    </li>
+  
+                </ul>
+  
+            </div>
+
+        </nav> 
+
+
+      
+
+        <div class="jumbotron" >
+            <div class="row">
+                <div class="col">
+                    <div class="logo" align="left">
+                        <br><br>
+                        <img src='{% static "images/logo1.png" %}' />
+                    </div>
+                </div>
+                <div class="col" align="center">
+                    <br><br><br>
+                    <h1 class="display-4">Welcome to South German Bank</h1>
+
+                    <h5 class="lead">Lassen sie uns für sie sorgen</h5>
+                </div>
+                <div class="col">
+                    </div>
+            </div>
+        </div>
+
+            {% comment %} <hr class="my-4">
+
+            <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+
+            <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a> {% endcomment %}
+
+        </div>
+
+
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        <!!{{cstomer}}><br><br><br>
+        <div align='right' name= 'home'>
+            
+            <form action='/'>
+                <input type='Submit' value='Home'>
+            </form>
+        </div>
+
+
+        {% if cstomer %}
+            <h2> Showing you the data</h2> 
+            <form action = "/crudding/crudder">
+                <input type='Submit' value = 'Back to CRUD Application'>
+            </form>
+            <br><br>
+        <div class = 'table'>
+            <div class='header'>
+        <table>
+            <tr>
+                <th>custid                 </th>
+                <th>credit_risk            </th>
+                <th>status                 </th>
+                <th>duration               </th>
+                <th>credit_history         </th>
+                <th>purpose                </th>
+                <th>amount                 </th>
+                <th>savings                </th>
+                <th>employment_duration    </th>
+                <th>installment_rate       </th>
+                <th>personal_status_sex    </th>
+                <th>other_debtors          </th>
+                <th>present_residence      </th>
+                <th>property_type          </th>
+                <th>age                    </th>
+                <th>other_installment_plans</th>
+                <th>housing                </th>
+                <th>number_credits         </th>
+                <th>job                    </th>
+                <th>people_liable          </th>
+                <th>telephone              </th>
+                <th>foreign_worker         </th>
+
+
+            </tr>
+        </div>
+            {% for i in cstomer %}
+
+            <tr>
+                <td>{{i.custid                 }}</td>
+                <td>{{i.credit_risk            }}</td>
+                <td>{{i.status                 }}</td>
+                <td>{{i.duration               }}</td>
+                <td>{{i.credit_history         }}</td>
+                <td>{{i.purpose                }}</td>
+                <td>{{i.amount                 }}</td>
+                <td>{{i.savings                }}</td>
+                <td>{{i.employment_duration    }}</td>
+                <td>{{i.installment_rate       }}</td>
+                <td>{{i.personal_status_sex    }}</td>
+                <td>{{i.other_debtors          }}</td>
+                <td>{{i.present_residence      }}</td>
+                <td>{{i.property_type          }}</td>
+                <td>{{i.age                    }}</td>
+                <td>{{i.other_installment_plans}}</td>
+                <td>{{i.housing                }}</td>
+                <td>{{i.number_credits         }}</td>
+                <td>{{i.job                    }}</td>
+                <td>{{i.people_liable          }}</td>
+                <td>{{i.telephone              }}</td>
+                <td>{{i.foreign_worker         }}</td>
+               
+            </tr>
+        
+
+
+            {% endfor %}
+        </table>
+        </div>
+
+        {% else %}
+            <h1> Entschuldigung, keine daten gefunden </h1>
+        {% endif %}
+
+
+        
+        <script src="" async defer></script>
+    </body>
+</html>
