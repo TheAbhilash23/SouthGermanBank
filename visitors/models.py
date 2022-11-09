@@ -44,3 +44,8 @@ class VisitorEnquiry(models.Model):
         null=True,
         blank=True,
     )
+
+    class Meta:
+        verbose_name = _("Visitor Enquiry")
+        verbose_name_plural = _("Visitor Enquiries")
+        db_table = "VisitorEnquiry"
