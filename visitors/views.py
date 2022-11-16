@@ -1,27 +1,31 @@
-# from django.shortcuts import render
-# from django.http import HttpResponse , HttpResponseRedirect, QueryDict
-# from django.contrib.auth.forms import UserCreationForm
-# from django.contrib.auth.forms import AuthenticationForm
-# from django.contrib.auth import authenticate, login, logout
-# from django.views import View
-# from django.views.generic.base import TemplateView, RedirectView
-# from django.views.decorators.csrf import csrf_protect
-#
-#
-#
-# from .forms import entryform
-# from .models import CustEnquiry
-# import datetime
-#
-#
-#
-#
-#
-#
-# # Create your views here.
-# import numpy as np
-# import pandas as pd
-#
+from django.shortcuts import render
+from django.http import HttpResponse , HttpResponseRedirect, QueryDict
+from django.views.generic.base import TemplateView, RedirectView
+from django.views.decorators.csrf import csrf_protect
+
+from rest_framework.decorators import action
+
+
+from visitors import serializers as visitor_serializers
+import datetime
+
+import pandas as pd
+import numpy as np
+# Create your views here.
+
+
+@action(
+    methods=['get', 'post'],
+    detail=True,
+    serializers=visitor_serializers.VisitorSerializer
+)
+class VisitorView()
+
+
+
+
+
+
 # @csrf_protect
 # def customer_enquiry(request):
 #     if request.method == 'GET':

@@ -19,3 +19,6 @@ class CustomerSerializer(serializers.ModelSerializer):
     CustomerCreditRiskParametersSerializer(required=False, many=True)
 
 
+class CustomerReadSerializer(serializers.ModelSerializer):
+    CustomerInformationSerializer(read_only=True)
+    CustomerCreditRiskParametersSerializer(read_only=True)
