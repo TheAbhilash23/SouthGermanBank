@@ -4,7 +4,7 @@ from core.base_items import BaseModel
 
 
 class CustomerCreditRiskParameters(BaseModel):
-    CustId = models.BigAutoField(
+    CustomerId = models.BigAutoField(
         _("Id"),
         primary_key=True,
     )
@@ -99,6 +99,8 @@ class CustomerCreditRiskParameters(BaseModel):
         null=True,
         blank=True,
     )
+    """Number of persons who financially depend on the debtor (i.e., are entitled to maintenance) 
+          (binary,discrete quantitative)"""
     PeopleLiable = models.PositiveIntegerField(
         _("Number of persons who financially depend on the debtor (i.e., are entitled to maintenance) "
           "(binary,discrete quantitative)"),
