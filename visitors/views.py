@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse , HttpResponseRedirect, QueryDict
+from django.http import HttpResponse, HttpResponseRedirect, QueryDict
 from django.views.generic.base import TemplateView, RedirectView
 from django.views.decorators.csrf import csrf_protect
 
@@ -14,17 +14,15 @@ import numpy as np
 # Create your views here.
 
 
-@action(
-    methods=['get', 'post'],
-    detail=True,
-    serializers=visitor_serializers.VisitorSerializer
-)
-class VisitorView()
+class VisitorView:
 
-
-
-
-
+    @action(
+        methods=['get', 'post'],
+        detail=True,
+        serializers=visitor_serializers.VisitorSerializer
+    )
+    def index(self, request):
+        pass
 
 # @csrf_protect
 # def customer_enquiry(request):
@@ -217,7 +215,8 @@ class VisitorView()
 #     def get(self,request):
 #
 #         print(request)
-#         return render(request,'visitors/crudoperations.html',{'form':self.form,'vars':self.var,'nform':self.nform,'delform':self.delform})
+#         return render(request,'visitors/crudoperations.html',
+#         {'form':self.form,'vars':self.var,'nform':self.nform,'delform':self.delform})
 #
 #
 #     @csrf_protect
@@ -315,8 +314,4 @@ class VisitorView()
 #
 #
 #         return HttpResponseRedirect('http://127.0.0.1:8000/crudding/login/firstpage_login/CRUDOperations/')
-#
-#
-#
-#
 #

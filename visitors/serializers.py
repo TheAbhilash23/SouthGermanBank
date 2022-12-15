@@ -1,10 +1,8 @@
 from rest_framework import serializers
-
 from visitors import models
 
 
 class VisitorEnquirySerializer(serializers.ModelSerializer):
-
     class Meta:
         model = models.VisitorEnquiry
 
