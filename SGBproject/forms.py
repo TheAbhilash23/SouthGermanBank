@@ -4,7 +4,9 @@ from django import forms
 
 
 class StaffSignupClass(UserCreationForm):
-    password2 = forms.CharField(label = 'Re-type your password', widget=forms.PasswordInput)
+    password2 = forms.CharField(label = 'Re-type your password',
+                                widget=forms.PasswordInput)
+
     class Meta:
         model = User
         fields = ('first_name','last_name','email','username')

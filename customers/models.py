@@ -4,12 +4,16 @@ from core.base_items import BaseModel
 
 
 class CustomerCreditRiskParameters(BaseModel):
+    """
+    This model contains the values of customer credit risk parameters for existing customers and
+     later on will contain the value for new customers
+    """
     CustomerId = models.BigAutoField(
         _("Id"),
         primary_key=True,
     )
     IsGoodCreditRisk = models.BooleanField(
-        _("Has the credit contract been complied with (good) or not (bad) ?"),
+        _("Is Good Credit Risk"),
         null=True,
         blank=True,
     )
@@ -99,8 +103,6 @@ class CustomerCreditRiskParameters(BaseModel):
         null=True,
         blank=True,
     )
-    """Number of persons who financially depend on the debtor (i.e., are entitled to maintenance) 
-          (binary,discrete quantitative)"""
     PeopleLiable = models.PositiveIntegerField(
         _("Number of persons who financially depend on the debtor (i.e., are entitled to maintenance) "
           "(binary,discrete quantitative)"),
@@ -118,6 +120,16 @@ class CustomerCreditRiskParameters(BaseModel):
         blank=True,
     )
 
+    def credit_risk_status(self):
+        if self.IsGoodCreditRisk:
+            return "High Credit Risk"
+        elif not self.IsGoodCredit:
+            return "Low Credit Risk"
+
+    def __str__(self):
+        return f"{self.CustomerId} {self.credit_risk_status()}"
+
+
     class Meta:
         verbose_name = _("Customer Parameter")
         verbose_name_plural = _("Customer Parameters")
@@ -126,7 +138,7 @@ class CustomerCreditRiskParameters(BaseModel):
 
 class CustomerInformation(BaseModel):
     Customer = models.OneToOneField(
-        CustomerCreditRiskParameters,
+        "customers.CustomerCreditRiskParameters",
         on_delete=models.CASCADE,
         primary_key=True,
     )
@@ -135,36 +147,39 @@ class CustomerInformation(BaseModel):
         max_length=225,
         null=True,
         blank=True,
+        default='',
     )
     Telephone = models.CharField(
         _("Phone number"),
         max_length=20,
         null=True,
         blank=True,
+        default='',
     )
     Email = models.EmailField(
         _("Email address"),
         max_length=250,
         null=True,
         blank=True,
+        default='',
     )
     SocialMediaLink = models.CharField(
         _("Social media link"),
         max_length=155,
         null=True,
         blank=True,
+        default='',
     )
     HighestEducation = models.CharField(
         _("Highest education"),
         null=True,
         blank=True,
-        max_length=150
+        max_length=150,
+        default='',
     )
-    HasBankAccount = models.BooleanField(
-        _("Has bank account with this bank"),
-        null=True,
-        blank=True,
-    )
+
+    def __str__(self):
+        return f"{self.Name}"
 
     class Meta:
         verbose_name = _("Customer Information")

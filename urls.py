@@ -17,14 +17,17 @@ from django.contrib import admin
 from django.urls import path, include
 from customers import views as customer_views
 from visitors import views as visitor_views
+from SGBproject import views as sgbproject_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    # path('visitors/', include('visitors.urls')),
-    path('', views.welcome, name='homepage'),
-    path('signup/', views.employee_signup, name='signup'),
-    path('Home/', views.RedirectView.as_view(url='/'), name='redirect home'),
-    path('home/', views.RedirectView.as_view(url='/'), ),
+    path('visitors/', include('visitors.urls')),
+    path('datareader/', include('datareader.urls')),
+    path('customers/', include('customers.urls')),
+    path('', sgbproject_views.welcome, name='homepage'),
+    path('signup/', sgbproject_views.employee_signup, name='signup'),
+
+
     # path('progress/',views.progress, name = 'progress'),
     # path('index/', views.index, name = 'index'),
 ]

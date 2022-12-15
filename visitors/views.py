@@ -4,25 +4,47 @@ from django.views.generic.base import TemplateView, RedirectView
 from django.views.decorators.csrf import csrf_protect
 
 from rest_framework.decorators import action
+from rest_framework.response import Response
+from rest_framework.viewsets import ModelViewSet
 
+from visitors import serializers, models
 
-from visitors import serializers as visitor_serializers
-import datetime
-
-import pandas as pd
-import numpy as np
+# import datetime
+#
+# import pandas as pd
+# import numpy as np
 # Create your views here.
 
 
-class VisitorView:
+class VisitorView(ModelViewSet):
+    queryset = models.Visitor.objects.all()
+    serializer_class = serializers.VisitorSerializer
+    # permission_classes = (IsAuthenticated,)
 
     @action(
         methods=['get', 'post'],
         detail=True,
-        serializers=visitor_serializers.VisitorSerializer
+        serializers=serializers.VisitorSerializer
     )
-    def index(self, request):
-        pass
+    def visitor(self, request):
+        if request.method == 'POST':
+            pass
+        else:
+            pass
+        return Response("Well Done", status=200)
+
+
+
+        # queryset = Post.objects.none()
+        # serializer_class = PostSerializer
+        # permission_classes = (IsAuthenticated,)
+        # http_method_names = ['get', ]
+        #
+        # def list(self, request):
+        #     query = request.GET.get('query', None)
+        #     query_set = Post.objects.filter(title__icontains=query)
+        #     return Response(self.serializer_class(query_set, many=True).data,
+        #                     status=status.HTTP_200_OK)
 
 # @csrf_protect
 # def customer_enquiry(request):
@@ -35,7 +57,6 @@ class VisitorView:
 #     elif request.method == 'POST':
 #         fm = entryform.customer_enquiry(request.POST)
 #         if fm.is_valid():
-#             print('This is your form')
 #
 #             name                = fm.cleaned_data['name']
 #             telephone           = fm.cleaned_data['telephone']
