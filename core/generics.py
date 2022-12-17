@@ -4,4 +4,5 @@ from django.core.exceptions import FieldDoesNotExist
 from rest_framework.settings import api_settings
 
 
-class CreateModelMixin(ModelMixin):
+class GenericModelMixin(ModelMixin):
+    pass

@@ -126,6 +126,9 @@ class CustomerCreditRiskParameters(BaseModel):
         elif not self.IsGoodCredit:
             return "Low Credit Risk"
 
+    def get_customer(self):
+        return self.CustomerId
+
     def __str__(self):
         return f"{self.CustomerId} {self.credit_risk_status()}"
 

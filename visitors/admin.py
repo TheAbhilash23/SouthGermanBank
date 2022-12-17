@@ -4,5 +4,4 @@ from visitors import models
 
 @admin.register(models.Visitor)
 class VisitorAdmin(admin.ModelAdmin):
-
-    fields = ('__all__',)
+    pass
