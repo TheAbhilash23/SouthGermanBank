@@ -10,5 +10,6 @@ class CustomerInformationSerializer(serializers.ModelSerializer):
 
 class CustomerSerializer(serializers.ModelSerializer):
     CustomerInformationSerializer(required=False, many=True)
+
     class Meta:
         model = models.CustomerCreditRiskParameters
