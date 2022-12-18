@@ -16,23 +16,23 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
-from rest_framework import permissions
 
 from core.base_items import BaseSwagger
 
-from SGBproject import views as sgbproject_views
-from visitors import views as visitor_views
-
-
-
-
+from routers import router
+#
+#
+#
+# list(BaseSwagger.schema_view)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('visitors/', include('visitors.urls')),
-    path('datareader/', include('datareader.urls')),
+    path('api/', include(router.get_urls()), name='api'),
+    path('swagger/', include(BaseSwagger.urlpatterns)),
+]
 
-    # path('signup/', sgbproject_views.employee_signup, name='signup'),
-    # path('progress/',views.progress, name = 'progress'),
-    # path('index/', views.index, name = 'index'),
-].append(BaseSwagger.urlpatterns)
+
+
+# path('signup/', sgbproject_views.employee_signup, name='signup'),
+# path('progress/',views.progress, name = 'progress'),
+# path('index/', views.index, name = 'index'),
